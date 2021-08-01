@@ -1,0 +1,44 @@
+import java.util.*;
+import java.io.*;
+class Testcase
+ {
+    public static void main(String args[]) throws Exception
+          {
+    BufferedReader br=new BufferedReader(new  InputStreamReader(System.in));
+        int a=Integer.parseInt(br.readLine());
+        int b=Integer.parseInt(br.readLine());
+       int n=great(a,b);
+       int sum=0;
+       int lim=(int)Math.sqrt(n);
+       while(n%2==0)
+       {
+           sum=sum+2;
+           n=n/2;
+           } 
+       for(int i=3;i<=lim;i=i+2)
+        {
+           if(n%i==0)
+              {
+               sum=sum+i;
+               n=n/i;
+               }
+        }
+       if(n>2)
+           sum=sum+n;
+           System.out.println(sum);
+       }
+       public static int great(int x,int y)
+           {
+           if(x==0)
+           return y;
+    else 
+          return great(y%x,x);
+       }
+    }
+    -----------------------------------------------------------------------------------------------------------------------------------------------------------
+    OUTPUT:
+    Sample Input:
+    30
+    12
+    Sample Output:
+    5
